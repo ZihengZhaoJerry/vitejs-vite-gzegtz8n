@@ -1,11 +1,19 @@
-import SongRequestForm from './components/SongRequestForm';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import WelcomePage from './pages/WelcomePage';
+import SearchPage from './pages/SearchPage';
+import RequestPage from './pages/RequestPage';
+import ConfirmationPage from './pages/ConfirmationPage';
 
 function App() {
   return (
-    <div style={{ maxWidth: '600px', margin: '50px auto', fontFamily: 'sans-serif' }}>
-      <h1>🎤 点歌系统 Song Request</h1>
-      <SongRequestForm />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<WelcomePage />} />
+        <Route path="/search" element={<SearchPage />} />
+        <Route path="/request/:songId" element={<RequestPage />} />
+        <Route path="/confirmation" element={<ConfirmationPage />} />
+      </Routes>
+    </Router>
   );
 }
 
